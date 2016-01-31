@@ -7,9 +7,23 @@ Bruce Delo + Christian DeWolf (c) 2016
     <title>$piderbusines$</title>
     <meta name="description" content="Sticky profits.">
     <link id="mainstyle" href="spider.css" rel="stylesheet"  type="text/css">
+  </head>
   <body>
     <h3>$piderbusines$</h3>
-    <canvas id="web-canvas" width="640" height="480" class="bordered"></canvas>
+    <div id="container">
+      <div id="canvas-frame">
+        <canvas id="web-canvas" class="bordered"></canvas>
+      </div>
+      <div id="dashboard">
+        <div id="markets-div" class="panel">Markets</div>
+        <div id="news-div" class="panel">News</div>
+        <div id="inventory-div" class="panel">Inventory</div>
+        <div id="offers-div" class="panel">Offers</div>
+        <div id="control-div" class="panel">
+          <button id="startgame-button">Start Game</button>
+        </div>
+      </div>
+    </div>
   </body>
   <footer>
     <p>Bruce Delo + Christian DeWolf (c) 2016</p>
