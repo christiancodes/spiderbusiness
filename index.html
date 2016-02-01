@@ -20,7 +20,19 @@ Bruce Delo + Christian DeWolf (c) 2016
         <div id="inventory-div" class="panel">Inventory</div>
         <div id="offers-div" class="panel">Offers</div>
         <div id="control-div" class="panel">
-          <button id="startgame-button">Start Game</button>
+          <div id="spiderbucks-panel">
+            <span>Spiderbucks: </span>
+            <span id="spiderbucks-counter"></span>
+          </div>
+          <div id="silk-panel">
+            <span>Silk: </span>
+            <span id="silk-counter"></span>
+          </div>
+          <div id="pizza-panel">
+            <span>Time until delivery: </span>
+            <span id="pizza-counter"></span>
+          </div>
+          <button id="startgame-button" onclick="initializeClock('pizza-counter')">Start Game</button>
         </div>
       </div>
     </div>

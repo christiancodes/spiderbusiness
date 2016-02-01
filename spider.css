@@ -1,18 +1,18 @@
 #canvas-frame {
   width: 640px;
-  height: 480px;
+  height: 640px;
   float: left;
 }
 
 #web-canvas {
   display: inline-block;
   width: 640px;
-  height: 480px;
+  height: 640px;
 }
 
 #dashboard {
   width: 500px;
-  height: 480px;
+  height: 640px;
   display: inline-block;
   margin-left: 20px;
 }
