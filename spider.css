@@ -33,6 +33,15 @@
   background-color: #A990D4;
 }
 
+.pizza-table {
+  width: 100%;
+}
+
 .hidden {
   display: none;
+}
+
+.center {
+  text-align: center;
+  margin: 0 auto;
 }

@@ -22,9 +22,27 @@ var pizzas = [
   }
 ];
 
+var insects = [
+  {
+    name: "Fly",
+    value: 5,
+    silk: 10,
+    weight: 2
+  },
+  {
+    name: "Bee",
+    value: 20,
+    silk: 20,
+    weight: 8
+  }
+]
+
+var inventory = [];
+var web = [];
 
 function Player() {
   this.spiderbucks = 100;
+  this.silk = 25;
 }
 
 Game.run = function() {
@@ -37,8 +55,12 @@ Game.update = function() {
 };
 
 Game.draw = function() {
-
+  drawWeb();
 };
+
+function drawWeb() {
+  // TODO
+}
 
 // Pizza/clock mechanics
 
@@ -52,7 +74,28 @@ function orderPizza(pizzaoption) {
 
 function initializeClock() {
   updateClock();
-  var timeinterval = setInterval(updateClock,1000);
+  var timeinterval = setInterval(everySecond,1000);
+}
+
+function everySecond() {
+  updateClock();
+  checkForInsects();
+  runEventMachine();
+  updateMarkets();
+}
+
+function checkForInsects() {
+  //TODO maybe something gets stuck
+
+}
+
+function runEventMachine() {
+  // TODO maybe calculate an event this second
+
+}
+
+function updateMarkets() {
+  // TODO for the market graphs maybe we can use something like http://solutoire.com/flotr/ ?
 }
 
 function updateClock() {
