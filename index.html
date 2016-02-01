@@ -7,6 +7,7 @@ Bruce Delo + Christian DeWolf (c) 2016
     <title>$piderbusines$</title>
     <meta name="description" content="Sticky profits.">
     <link id="mainstyle" href="spider.css" rel="stylesheet"  type="text/css">
+    <script type="application/javascript" src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
   </head>
   <body>
     <h3>$piderbusines$</h3>
@@ -19,7 +20,8 @@ Bruce Delo + Christian DeWolf (c) 2016
         <div id="news-div" class="panel">News</div>
         <div id="inventory-div" class="panel">Inventory</div>
         <div id="offers-div" class="panel">Offers</div>
-        <div id="control-div" class="panel">
+
+        <div id="control-panel" class="panel hidden">
           <div id="spiderbucks-panel">
             <span>Spiderbucks: </span>
             <span id="spiderbucks-counter"></span>
@@ -28,17 +30,42 @@ Bruce Delo + Christian DeWolf (c) 2016
             <span>Silk: </span>
             <span id="silk-counter"></span>
           </div>
-          <div id="pizza-panel">
-            <span>Time until delivery: </span>
-            <span id="pizza-counter"></span>
-          </div>
-          <button id="startgame-button" onclick="initializeClock('pizza-counter')">Start Game</button>
+          <span>Time until delivery: </span>
+          <span id="pizza-counter"></span>
         </div>
+
+        <div id="pizza-panel" class="panel">
+          <table>
+            <tr>
+              <td>Pepperoni</td>
+              <td>BBQ Chicken</td>
+              <td>The Works</td>
+            </tr>
+            <tr>
+              <td>
+                <p>$15</p>
+                <p>30 mins</p>
+                <button onclick="orderPizza(0)">Order</button>
+              </td>
+              <td>
+                <p>$20</p>
+                <p>40 mins</p>
+                <button onclick="orderPizza(1)">Order</button>
+              </td>
+              <td>
+                <p>$30</p>
+                <p>60 mins</p>
+                <button onclick="orderPizza(2)">Order</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+
       </div>
     </div>
   </body>
   <footer>
     <p>Bruce Delo + Christian DeWolf (c) 2016</p>
-    <script type="application/javascript" src="business.js"></script>
+    <script type="application/javascript" src="scripts/business.js"></script>
   </footer>
 </html>

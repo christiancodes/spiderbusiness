@@ -4,6 +4,25 @@ Game.fps = 60;
 var canv = document.getElementById("web-canvas");
 var ctx = canv.getContext("2d");
 
+var pizzas = [
+  {
+    kind: "Pepperoni",
+    price: 15,
+    time: 30
+  },
+  {
+    kind: "BBQ Chicken",
+    price: 20,
+    time: 40
+  },
+  {
+    kind: "The Works",
+    price: 30,
+    time: 60
+  }
+];
+
+
 function Player() {
   this.spiderbucks = 100;
 }
@@ -23,24 +42,33 @@ Game.draw = function() {
 
 // Pizza/clock mechanics
 
-function initializeClock(id){
-  var endtime = new Date();
-  endtime = addMinutes(endtime, 60);
-  var clock = document.getElementById(id);
-  var timeinterval = setInterval(function(){
-    var t = getTimeRemaining(endtime);
-    clock.innerHTML = ('0' + t.minutes).slice(-2) + ':' + ('0' + t.seconds).slice(-2);
-    if(t.total<=0){
-      clearInterval(timeinterval);
-    }
-  },1000);
+function orderPizza(pizzaoption) {
+  Game.player.order = pizzaoption;
+  Game.player.deliveryTime = addMinutes(new Date(), pizzas[pizzaoption].time);
+  initializeClock();
+  $('#control-panel').removeClass("hidden");
+  $('#pizza-panel').addClass("hidden");
+}
+
+function initializeClock() {
+  updateClock();
+  var timeinterval = setInterval(updateClock,1000);
+}
+
+function updateClock() {
+  var clock = document.getElementById("pizza-counter");
+  var t = getTimeRemaining(Game.player.deliveryTime);
+  clock.innerHTML = (t.hours ? "1:" : "") + ('0' + t.minutes).slice(-2) + ':' + ('0' + t.seconds).slice(-2);
+  if(t.total <= 0) {
+    pizzaArrives();
+  }
 }
 
 function addMinutes(date, minutes) {
-    return new Date(date.getTime() + minutes*60000);
+  return new Date(date.getTime() + minutes*60000);
 }
 
-function getTimeRemaining(endtime){
+function getTimeRemaining(endtime) {
   var t = Date.parse(endtime) - Date.parse(new Date());
   var seconds = Math.floor( (t/1000) % 60 );
   var minutes = Math.floor( (t/1000/60) % 60 );
@@ -53,6 +81,10 @@ function getTimeRemaining(endtime){
     'minutes': minutes,
     'seconds': seconds
   };
+}
+
+function pizzaArrives() {
+  // TODO
 }
 
 //////////////////

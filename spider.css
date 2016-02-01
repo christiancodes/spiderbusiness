@@ -32,3 +32,7 @@
 .purple {
   background-color: #A990D4;
 }
+
+.hidden {
+  display: none;
+}
